@@ -1,9 +1,9 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useContext } from 'react';
 import ErrorPage from '../../_common/errorPage';
 import AppContext from '../../_context';
 import OwnerControls from './ownerControls';
-import PrizeList from './prizeList';
+import RaffleInfo from './raffle';
 
 export default function HomePage() {
   const { raffle, error } = useContext(AppContext);
@@ -27,11 +27,10 @@ export default function HomePage() {
   }
 
   return (
-    <Container maxWidth='xl'>
-      <Typography variant='h6' m={1}>Raffles</Typography>
+    <Container maxWidth='xl' sx={{ marginTop: 2 }}>
       <OwnerControls />
       <Box mt={3} />
-      <PrizeList />
+      <RaffleInfo />
     </Container>
   )
 }
