@@ -5,14 +5,14 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 import AppContext from '../../../../../_context';
 
-export default function EndTimeDisplay() {
+export default function EmptyPoolSizeDisplay() {
   const { raffle } = useContext(AppContext);
-  const [data, setData] = useState(0);
+  const [data, setData] = useState('');
 
   const loadData = async (contract) => {
     if (contract) {
       setData('(Loading)');
-      contract.methods.endTime().call()
+      contract.methods.emptyPoolSize().call()
       .then((data) => {
         setData(data);
       })
@@ -22,8 +22,6 @@ export default function EndTimeDisplay() {
       });
     }
   }
-
-  const datetime = new Date(data*1000);
 
   const handleRefresh = () => loadData(raffle);
 
@@ -35,7 +33,7 @@ export default function EndTimeDisplay() {
     <Paper variant='outlined'>
       <Box display='flex' py={1} px={2}>
         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-          <Typography variant='body1'><b>End time:</b> {datetime.toLocaleString('en-GB')}</Typography>
+          <Typography variant='body1'><b>Empty pool size:</b> {data}</Typography>
         </Box>
         <IconButton size='small' onClick={handleRefresh}><RefreshIcon /></IconButton>
       </Box>

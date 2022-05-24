@@ -56,7 +56,9 @@ export default function DisplayListItem({row = {}}) {
         <Avatar 
           variant='rounded'
           src={row.image || 'https://via.placeholder.com/50x50?text=no+image'}
-        />
+        >
+          {row.id}
+        </Avatar>
       </ListItemAvatar>
       <ListItemText
         primary={`ID: ${row.id}`}

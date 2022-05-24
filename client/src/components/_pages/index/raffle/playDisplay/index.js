@@ -1,6 +1,7 @@
 import { Paper, Typography, Box } from '@mui/material';
 import ContractAddressDisplay from './addressDisplay';
 import DrawButton from './drawButton';
+import EmptyPoolSizeDisplay from './emptyPoolDisplay';
 import EndTimeDisplay from './endTimeDisplay';
 import OwnerDisplay from './ownerDisplay';
 
@@ -12,6 +13,7 @@ export default function PlayDisplay() {
         <ContractAddressDisplay />
         <OwnerDisplay />
         <EndTimeDisplay />
+        <EmptyPoolSizeDisplay />
         <DrawButton />
       </Box>
     </Paper>

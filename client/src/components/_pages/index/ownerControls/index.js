@@ -1,5 +1,6 @@
 import { Box, Paper, Typography } from '@mui/material';
 import AddNewPrizeControl from './addNew';
+import AdjustEmptyPoolSizeControl from './adjustEmptyPoolSize';
 
 export default function OwnerControls() {
   return (
@@ -12,6 +13,7 @@ export default function OwnerControls() {
         gap={2}
       >
         <AddNewPrizeControl />
+        <AdjustEmptyPoolSizeControl />
       </Box>
     </Paper>
   )

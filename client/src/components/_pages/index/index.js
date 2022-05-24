@@ -28,8 +28,9 @@ export default function HomePage() {
 
   return (
     <Container maxWidth='xl' sx={{ marginTop: 2 }}>
-      <OwnerControls />
-      <Box mt={3} />
+      <Box mb={3}>
+        <OwnerControls />
+      </Box>
       <RaffleInfo />
     </Container>
   )

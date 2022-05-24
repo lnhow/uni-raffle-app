@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { useContext, useState } from 'react';
 import AppContext from '../../../../../_context';
@@ -17,7 +17,8 @@ export default function DrawButton() {
       setLoading(true);
       setOpen(true);
       raffle.methods.draw().send({
-        from: address
+        from: address,
+        gas: 300000,
       })
       .then((data) => {
         console.log(data);
@@ -42,18 +43,20 @@ export default function DrawButton() {
   return (
     <Box sx={{
       display: 'flex',
-      height: 300,
+      padding: 4,
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <LoadingButton
-        variant='contained'
-        size='large'
-        style={{ width: 250, height: 140 }}
-        onClick={handleDraw}
-      >
-        Draw
-      </LoadingButton>
+      <Tooltip title='Draw prize'>
+        <LoadingButton
+          variant='contained'
+          size='large'
+          style={{ width: 250, height: 140 }}
+          onClick={handleDraw}
+        >
+          Draw
+        </LoadingButton>
+      </Tooltip>
       <DrawResultDialog
         open={open}
         loading={loading}
