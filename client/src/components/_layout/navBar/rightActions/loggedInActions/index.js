@@ -1,6 +1,6 @@
 import { Button, Tooltip } from '@mui/material';
 import { useContext } from 'react';
-import { AppContext } from '../../../../_context';
+import AppContext from '../../../../_context';
 
 export default function LoggedInActions() {
   const { address } = useContext(AppContext);

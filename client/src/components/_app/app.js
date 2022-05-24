@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import 'react-toastify/dist/ReactToastify.css';
 
-import AppContextProvider from '../_context';
+import { AppContextProvider } from '../_context';
 import AppRouter from '../_router';
 
 const darkTheme = createTheme({
