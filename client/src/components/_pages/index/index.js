@@ -20,7 +20,7 @@ export default function HomePage() {
   if (!raffle) {
     return (
       <ErrorPage
-        title='Cannot proceed'
+        title='Raffle app'
         details='Please connect to wallet to proceed'
       />
     )

@@ -3,8 +3,10 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
-contract PrizeRaffle is ERC721 {
+// ERC721Holder implemented a basic onERC721Received function
+contract PrizeRaffle is ERC721, ERC721Holder   {
     address public owner;
     uint256 private randNonce = 0;
 
@@ -58,7 +60,7 @@ contract PrizeRaffle is ERC721 {
 
     function addPrize(string memory _image, string memory _description) external onlyOwner {
         uint id = nextPrizeId;
-        _safeMint(owner, id);
+        _safeMint(address(this), id);
         Prize memory newPrize = Prize(id, _image, _description);
         prizes[id] = newPrize;
         prizeDetails.push(newPrize);
@@ -85,7 +87,8 @@ contract PrizeRaffle is ERC721 {
     function transferPrize(address to, uint indexId) internal {
         Prize memory transfer = availablePrizes[indexId];
         prizeWinners[transfer.id] = to;
-        safeTransferFrom(owner, to, transfer.id);
+        _approve(to, transfer.id);
+        safeTransferFrom(address(this), to, transfer.id);
         emit PrizeWonTranfer(to, transfer.id);
 
         // Remove from available prize pool

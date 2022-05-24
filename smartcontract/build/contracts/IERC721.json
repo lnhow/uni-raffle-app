@@ -301,7 +301,7 @@
     "absolutePath": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
     "exportedSymbols": {
       "IERC165": [
-        1582
+        1609
       ],
       "IERC721": [
         981
@@ -329,7 +329,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 982,
-        "sourceUnit": 1583,
+        "sourceUnit": 1610,
         "src": "133:47:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -342,7 +342,7 @@
               "id": 870,
               "name": "IERC165",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1582,
+              "referencedDeclaration": 1609,
               "src": "271:7:1"
             },
             "id": 871,
@@ -362,7 +362,7 @@
         "id": 981,
         "linearizedBaseContracts": [
           981,
-          1582
+          1609
         ],
         "name": "IERC721",
         "nameLocation": "260:7:1",
@@ -1645,7 +1645,7 @@
     "absolutePath": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
     "exportedSymbols": {
       "IERC165": [
-        1582
+        1609
       ],
       "IERC721": [
         981
@@ -1673,7 +1673,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 982,
-        "sourceUnit": 1583,
+        "sourceUnit": 1610,
         "src": "133:47:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1686,7 +1686,7 @@
               "id": 870,
               "name": "IERC165",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1582,
+              "referencedDeclaration": 1609,
               "src": "271:7:1"
             },
             "id": 871,
@@ -1706,7 +1706,7 @@
         "id": 981,
         "linearizedBaseContracts": [
           981,
-          1582
+          1609
         ],
         "name": "IERC721",
         "nameLocation": "260:7:1",
@@ -2991,7 +2991,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-24T11:50:18.725Z",
+  "updatedAt": "2022-05-24T14:06:12.160Z",
   "devdoc": {
     "details": "Required interface of an ERC721 compliant contract.",
     "events": {

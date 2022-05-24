@@ -1,4 +1,12 @@
-import { Dialog, Box, Button, Typography, CircularProgress, Link } from '@mui/material';
+import { 
+  Dialog,
+  DialogContent,
+  Box,
+  Button,
+  Typography,
+  CircularProgress,
+  Link,
+} from '@mui/material';
 import { NETWORK_URL } from '../../../../../../utils/constants';
 
 export default function DrawResultDialog({
@@ -14,15 +22,14 @@ export default function DrawResultDialog({
 
   return (
     <Dialog onClose={handleClose} open={open} maxWidth='sm' fullWidth>
-      <Box sx={{ height: 400 }}>
-        <Box sx={{
-          height: '100%',
-          padding: 2,
-          flexGrow: 1, 
+      <DialogContent>
+        <Box sx={{ 
+          minHeight: 400,
+          py: 2,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}>
           {loading && (
             <>
@@ -35,7 +42,13 @@ export default function DrawResultDialog({
           {(!loading && error) && (
             <>
               <Typography variant='h4'>Error</Typography>
-              <Typography variant='caption'>{error}</Typography>
+              <Typography variant='caption'>Transaction error</Typography>
+              <Typography 
+                variant='subtitle2'
+                sx={{ wordWrap: 'break-word', maxWidth: '100%', }}
+              >
+                {error.message}
+              </Typography>
             </>
           )}
           {(!loading && !error) && (
@@ -77,7 +90,7 @@ export default function DrawResultDialog({
             </Box>
           )}
         </Box>
-      </Box>
+      </DialogContent>
     </Dialog>
   );
 }

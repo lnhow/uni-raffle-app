@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:rinkeby": "truffle mirgrate --network rinkeby",
-    "migrate-forced:rinkeby": "truffle mirgrate --network rinkeby --reset"
+    "migrate:rinkeby": "truffle migrate --network rinkeby",
+    "migrate-forced:rinkeby": "truffle migrate --network rinkeby --reset"
   },
   "keywords": [],
   "author": "",

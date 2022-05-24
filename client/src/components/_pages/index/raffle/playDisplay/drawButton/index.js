@@ -14,18 +14,21 @@ export default function DrawButton() {
 
   const handleDraw = () => {
     if (raffle) {
+      setData({});
+      setError(null);
       setLoading(true);
       setOpen(true);
       raffle.methods.draw().send({
         from: address,
-        gas: 300000,
+        gas: 3000000,
       })
       .then((data) => {
         console.log(data);
         setData(data);
       })
       .catch((err) => {
-        setError(err.message);
+        console.log(err);
+        setError(err);
       })
       .finally(() => {
         setLoading(false);
