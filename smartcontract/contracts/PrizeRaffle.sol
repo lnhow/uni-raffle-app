@@ -23,12 +23,14 @@ contract PrizeRaffle is ERC721 {
     mapping (uint256 => Prize) public prizes;
     Prize[] public prizeDetails;
     Prize[] public availablePrizes;    // Prizes left
-    
+    mapping (uint256 => address) internal prizeWinners;   // Token ID to winner mapping
+
     struct DrawDetail {
         uint256 id;
         address drawer;
-        uint prizeIndex;
+        uint drawIndex;
         bool isWon;
+        uint prizeWon;
     }
 
     event PrizeWonTranfer (
@@ -69,16 +71,20 @@ contract PrizeRaffle is ERC721 {
         uint256 drawId = nextDrawId;
         uint prizeIndex = drawPossiblePrize();
         bool isWon = isPrizeAvailable(prizeIndex);
-        drawDetail.push(DrawDetail(drawId, drawer, prizeIndex, isWon));
         nextDrawId++;
         if (isWon) {
+            Prize memory prizeWon = availablePrizes[prizeIndex];
+            drawDetail.push(DrawDetail(drawId, drawer, prizeIndex, isWon, prizeWon.id));
             transferPrize(drawer, prizeIndex);
+        } else {
+            drawDetail.push(DrawDetail(drawId, drawer, prizeIndex, isWon, 0));
         }
         return (drawId, prizeIndex, isWon);
     }
 
     function transferPrize(address to, uint indexId) internal {
         Prize memory transfer = availablePrizes[indexId];
+        prizeWinners[transfer.id] = to;
         safeTransferFrom(owner, to, transfer.id);
         emit PrizeWonTranfer(to, transfer.id);
 
@@ -134,10 +140,14 @@ contract PrizeRaffle is ERC721 {
         return drawDetail.length;
     }
 
-    function getDraw(uint index) external view returns (uint, address, uint, bool) {
+    function getDraw(uint index) external view returns (uint, address, uint, bool, uint) {
         require(drawDetail.length > 0 && index < drawDetail.length, "Index out of bound");
         DrawDetail memory detail = drawDetail[index];
-        return (detail.id, detail.drawer, detail.prizeIndex, detail.isWon);
+        return (detail.id, detail.drawer, detail.drawIndex, detail.isWon, detail.prizeWon);
+    }
+
+    function getPrizeOwner(uint256 id) external view returns (address) {
+        return prizeWinners[id];
     }
 
     // Modifiers =================================
