@@ -49,7 +49,7 @@ export default function DrawButton() {
       <LoadingButton
         variant='contained'
         size='large'
-        style={{ width: 200, height: 160 }}
+        style={{ width: 250, height: 140 }}
         onClick={handleDraw}
       >
         Draw

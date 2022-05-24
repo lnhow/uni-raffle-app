@@ -24,14 +24,15 @@ export default function DrawDisplay() {
         for (let i = num - 1; i > -1; i--) {
           try {
             const line = await contract.methods.getDraw(i).call();
-            // const formatted = {
-            //   id: line[0],
-            //   drawer: line[1],
-            //   drawIndex: line[2],
-            //   isWon: line[3]
-            // }
-            console.log(line);
-            // lines.push(formatted);
+            const formatted = {
+              id: line[0],
+              drawer: line[1],
+              drawIndex: line[2],
+              isWon: line[3],
+              priceWon: line[4],
+            }
+            // console.log(line);
+            lines.push(formatted);
           } catch (error) {
             console.log(error);
           }
@@ -56,7 +57,7 @@ export default function DrawDisplay() {
   return (
     <Paper sx={{ padding: 2, height: 500 }}>
       <DisplayTopbar 
-        title={<><b>Draws</b> ({numData})</>}
+        title={<><b>Draw history</b> ({numData})</>}
         handleRefresh={() => loadData(raffle)}
       />
       <DisplayContainer 

@@ -11,7 +11,7 @@ import { NETWORK_URL } from '../../../../../../../utils/constants';
 
 export default function DisplayListItem({row = {}}) {
   const drawer = row.drawer ? trimAddress(row.drawer) : '(Unknown)';
-  const drawerLink = row.drawer ? `${NETWORK_URL}/address/${row.drawer}` : null;
+  const drawerLink = row.drawer ? `${NETWORK_URL}address/${row.drawer}` : null;
 
   return (
     <ListItem alignItems='flex-start'>
@@ -44,7 +44,7 @@ export default function DisplayListItem({row = {}}) {
               variant='caption'
               color='text.primary'
             >
-              Index drawed: {row.drawIndex}
+              Index drawn: {row.drawIndex}
             </Typography>
             <Typography
               sx={{ display: 'inline', pl: 1 }}
@@ -52,7 +52,7 @@ export default function DisplayListItem({row = {}}) {
               variant='caption'
               color='text.primary'
             >
-              {row.isWon ? 'Won a prize' : 'Did not win anything'}
+              {row.isWon ? `Won PrizeID: ${row.priceWon}` : 'Did not win anything'}
             </Typography>
           </>}
       />
