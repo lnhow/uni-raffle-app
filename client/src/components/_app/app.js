@@ -6,16 +6,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AppContextProvider } from '../_context';
 import AppRouter from '../_router';
 
-const darkTheme = createTheme({
+const getTheme = (isDark = false) => createTheme({
   palette: {
-    mode: 'dark',
+    mode: isDark ? 'dark' : 'light',
+    background: {
+      default: isDark ? '#111' : '#eee'
+    }
   },
 });
+
+const theme = getTheme(false);
 
 function App() {
   return (
     <AppContextProvider>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <AppRouter />
         <ToastContainer 
