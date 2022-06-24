@@ -104,10 +104,18 @@ contract PrizeRaffle is ERC721, ERC721Holder   {
         return rand(0, availablePrizes.length + emptyPoolSize);
     }
 
-    // Probably not safe
+    // Based on
+    // https://github.com/kiraAdi/Blockchain-based-Smart-Contract-Digitized-Lottery-Scheme-/blob/main/Contracts/ChainLottery.sol
+    // https://github.com/blockservice/fomo3d/blob/master/sols/fomo3d.sol
     function rand(uint min, uint max) internal returns (uint) {
         randNonce++;
-        uint rawRandom = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender, randNonce)));
+        uint rawRandom = uint(keccak256(abi.encodePacked(
+            block.timestamp,
+            block.difficulty,
+            block.number,
+            msg.sender,
+            randNonce
+        )));
         return (rawRandom % (min + max) - min);
     }
 
