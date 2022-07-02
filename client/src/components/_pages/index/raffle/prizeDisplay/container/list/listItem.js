@@ -61,7 +61,13 @@ export default function DisplayListItem({row = {}}) {
         </Avatar>
       </ListItemAvatar>
       <ListItemText
-        primary={`ID: ${row.id}`}
+        primary={
+          <>
+            <Typography variant='subtitle2'>
+              <b>{row.description || '(No description)'}</b>
+            </Typography>
+          </>
+        }
         secondary={
           <>
             <Typography
@@ -70,10 +76,11 @@ export default function DisplayListItem({row = {}}) {
               variant='body2'
               color='text.primary'
             >
-              {row.description || '(No description)'}
+              {`PrizeID: ${row.id}`}
             </Typography>
             {displayWinner()}
-          </>}
+          </>
+        }
       />
     </ListItem>
   )

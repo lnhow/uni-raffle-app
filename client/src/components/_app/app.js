@@ -11,7 +11,19 @@ const getTheme = (isDark = false) => createTheme({
     mode: isDark ? 'dark' : 'light',
     background: {
       default: isDark ? '#111' : '#eee'
-    }
+    },
+    secondary: {
+      light: '#9effff',
+      main: '#64ffda',
+      dark: '#14cba8',
+      contrastText: '#000',
+    },
+    primary: {
+      light: '#69e2ff',
+      main: '#00b0ff',
+      dark: '#0081cb',
+      contrastText: '#000',
+    },
   },
 });
 

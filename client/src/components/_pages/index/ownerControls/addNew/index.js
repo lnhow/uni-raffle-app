@@ -16,7 +16,7 @@ export default function AddNewPrizeControl() {
   return (
     <Box>
       <Tooltip title='Add a new prize'>
-        <Button variant='contained' onClick={toggleOpen}>
+        <Button variant='contained' color='secondary' onClick={toggleOpen}>
           Add Prize
         </Button>
       </Tooltip>
