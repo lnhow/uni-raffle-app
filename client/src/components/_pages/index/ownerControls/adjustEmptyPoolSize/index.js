@@ -16,7 +16,7 @@ export default function AdjustEmptyPoolSizeControl() {
   return (
     <Box>
       <Tooltip title='Add a new prize'>
-        <Button variant='contained' onClick={toggleOpen}>
+        <Button variant='contained' color='secondary' onClick={toggleOpen}>
           Adjust Empty Pool Size
         </Button>
       </Tooltip>
