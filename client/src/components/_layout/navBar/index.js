@@ -8,7 +8,7 @@ const NavTitle = styled(Typography)(() => ({
   color: 'inherit',
 }));
 
-function NavBar() {
+export default function LayoutNavBar() {
   return (
     <>
       <AppBar color='background' position='static'>
@@ -23,5 +23,3 @@ function NavBar() {
     </>
   );
 }
-
-export default NavBar;

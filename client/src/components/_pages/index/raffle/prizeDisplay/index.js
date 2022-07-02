@@ -2,7 +2,7 @@ import { Paper, } from '@mui/material';
 import { useState, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import AppContext from '../../../../_context';
-import DisplayTopbar from './topbar';
+import DisplayTopbar from '../../../../_common/displayTopbar';
 import DisplayContainer from './container';
 
 export default function PrizeDisplay() {
@@ -56,6 +56,7 @@ export default function PrizeDisplay() {
     <Paper sx={{ padding: 2, height: 500 }}>
       <DisplayTopbar 
         title={<><b>All prizes</b> ({numData})</>}
+        tooltip={'All prizes & it\'s winner'}
         handleRefresh={() => loadData(raffle)}
       />
       <DisplayContainer 

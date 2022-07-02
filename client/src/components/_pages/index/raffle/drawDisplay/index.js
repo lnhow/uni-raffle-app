@@ -2,7 +2,7 @@ import { Paper, } from '@mui/material';
 import { useState, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import AppContext from '../../../../_context';
-import DisplayTopbar from './topbar';
+import DisplayTopbar from '../../../../_common/displayTopbar';
 import DisplayContainer from './container';
 
 export default function DrawDisplay() {
@@ -58,6 +58,7 @@ export default function DrawDisplay() {
     <Paper sx={{ padding: 2, height: 500 }}>
       <DisplayTopbar 
         title={<><b>Draw history</b> ({numData})</>}
+        tooltip='User - number drawn - prize according to the number'
         handleRefresh={() => loadData(raffle)}
       />
       <DisplayContainer 
