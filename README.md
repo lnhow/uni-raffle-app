@@ -6,6 +6,11 @@ A blockchain-based random game
 - 18120312 - Trần Hoàng Đạt
 - 18120355 - Lê Nguyên Hào
 
+## Notes
+
+- `/client`: React client app
+- `/smartcontract`: Truffle-Infura deploy solidity contract
+
 ## References
 
 - https://github.com/kiraAdi/Blockchain-based-Smart-Contract-Digitized-Lottery-Scheme-/blob/main/Contracts/ChainLottery.sol
